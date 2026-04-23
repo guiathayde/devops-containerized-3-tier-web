@@ -1,8 +1,11 @@
 const express = require('express');
 const cors = require('cors');
 const { Pool } = require('pg');
+const fs = require('fs');
 
-process.loadEnvFile();
+if (fs.existsSync('.env')) {
+  process.loadEnvFile();
+}
 
 const app = express();
 app.use(cors());
